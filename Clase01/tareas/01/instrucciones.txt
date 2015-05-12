@@ -1,0 +1,3 @@
+- Completar los métodos del módulo controlador PacienteControlador.js.
+- El arreglo listaPacientes simulará la base de datos.
+- Invoquen el módulo desde otro archivo js y validen que funcione.
