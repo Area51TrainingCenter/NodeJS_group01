@@ -1,0 +1,13 @@
+html
+	head
+		meta(charset="utf8")
+		title=titulo
+	body
+		table
+			tr
+				td Nombre
+				td Apellido
+			-each item in data
+				tr
+					td #{item.nombre}
+					td #{item.apellido}
