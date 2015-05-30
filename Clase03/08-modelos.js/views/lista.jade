@@ -1,0 +1,24 @@
+html
+	head
+		meta(charset="utf8")
+	body
+		h1=titulo
+
+		-if(registros.length)
+			table
+				th
+					td Id
+					td Título
+					td Año
+				-each pelicula in registros
+					tr
+						td #{pelicula.idpelicula}
+						td #{pelicula.titulo}
+						td #{pelicula.anno}
+			script.
+				function eliminar(input){
+					var confirmar = confirm("¿eliminar?");
+					return confirmar?input.parentNode.submit:false;
+				}
+		-else
+			div No hay películas

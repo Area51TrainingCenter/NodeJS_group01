@@ -1,0 +1,7 @@
+var app = require("../app");
+
+function fnServidor(){
+	console.log("Servidor en el puerto 3000");
+}
+
+var server = app.listen(app.get("puerto"), fnServidor);

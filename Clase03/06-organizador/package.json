@@ -1,0 +1,16 @@
+{
+  "name": "06-organizador",
+  "version": "0.0.1",
+  "description": "Organizador de archivos",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.12.4",
+    "jade": "^1.10.0",
+    "serve-favicon": "^2.2.1"
+  }
+}
