@@ -1,0 +1,17 @@
+{
+  "name": "Archivos",
+  "version": "0.0.0",
+  "description": "Subir",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "formidable": "^1.0.17"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5"
+  }
+}
