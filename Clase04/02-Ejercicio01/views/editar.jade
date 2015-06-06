@@ -1,0 +1,13 @@
+html
+	head
+		meta(charset="utf8")
+	body
+		h1 #{titulo}
+		form(method="POST", action="/update/#{data[0].idpelicula}")
+			fieldset
+				div
+					input(type="text",name="titulo",id="titulo",placeholder="Título de película", required, value="#{data[0].titulo}")
+				div
+					input(type="numeric",name="anno",id="anno",placeholder="Año de la película",required, value="#{data[0].anno}")
+				div
+					input(type="submit",value="Grabar")

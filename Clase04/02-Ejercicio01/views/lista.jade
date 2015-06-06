@@ -1,0 +1,22 @@
+html
+	head
+		meta(charset="utf8")
+	body
+		a(href="/add-form") Agregar película
+		-if(data.length)
+			table
+				tr
+					th Id
+					th Título
+					th Año
+					th
+				-each item in data
+					tr
+						td #{item.idpelicula}
+						td #{item.titulo}
+						td #{item.anno}
+						td
+							a(href="/edit/#{item.idpelicula}") Editar | 
+							a(href="/delete/#{item.idpelicula}") Eliminar
+		-else
+			h1 No existen registros en la base de datos
