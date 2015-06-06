@@ -11,10 +11,10 @@ var express = require("express"),
 	app = express();
 
 app.use(favicon(faviconURL));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:false}));
 app.use(routes);
 app.use(dirPublic);
-app.use(bodyParser());
-app.use(bodyParser.urlencoded({extended:false}));
 
 app.set("views", dirViews);
 app.set("view engine", engineView);

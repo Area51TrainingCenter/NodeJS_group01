@@ -23,9 +23,63 @@ function fnFormularioAgregar(req, res) {
 	res.render("add-form", obj);
 }
 
+function fnAgregarPelicula(req, res) {
+	var obj = {
+		titulo: req.body.titulo,
+		anno: req.body.anno
+	};
+
+	req.getConnection(function(err, modelPelicula) {
+		modelPelicula.query("insert into pelicula set ?", obj, function(err){
+			if(err) {
+				res.redirect("/add-form",{titulo:"Formulario de Película"});
+			} else {
+				res.redirect("/");
+			}
+		})
+	});
+}
+
+function fnEditarPelicula(req, res) {
+	var idpelicula = req.params.id;
+
+	req.getConnection(function(err, modelPelicula) {
+		modelPelicula.query("select * from pelicula where idpelicula = ?", idpelicula, function(err, registro){
+			if(err) {
+				res.redirect("/");
+			} else {
+				var obj = {
+					titulo: "Edición de Película",
+					data:registro
+				};
+
+				res.render("editar", obj);
+			}
+		})
+	});
+}
+
+function fnActualizarPelicula(req, res){
+	var idpelicula = req.params.id;
+	var registro = {
+		titulo: req.body.titulo,
+		anno: req.body.anno
+	};
+
+	req.getConnection(function(err, modelPelicula){
+		modelPelicula.query("update pelicula set ? where idpelicula = ?", [registro, idpelicula], function(err){
+			res.redirect("/");
+		})
+	})
+
+}
+
 router.use(modelPelicula);
 
 router.get("/", fnListarPeliculas);
 router.get("/add-form", fnFormularioAgregar);
+router.post("/", fnAgregarPelicula);
+router.get("/edit/:id", fnEditarPelicula);
+router.post("/update/:id", fnActualizarPelicula);
 
 module.exports = router;	

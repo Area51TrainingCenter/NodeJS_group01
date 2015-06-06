@@ -9,10 +9,13 @@ html
 					th Id
 					th Título
 					th Año
+					th
 				-each item in data
 					tr
 						td #{item.idpelicula}
 						td #{item.titulo}
 						td #{item.anno}
+						td
+							a(href="/edit/#{item.idpelicula}") Editar
 		-else
 			h1 No existen registros en la base de datos
