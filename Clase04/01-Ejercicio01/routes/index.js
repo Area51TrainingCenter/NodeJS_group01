@@ -71,7 +71,16 @@ function fnActualizarPelicula(req, res){
 			res.redirect("/");
 		})
 	})
+}
 
+function fnEliminarPelicula(req, res) {
+	var idpelicula = req.params.id;
+
+	req.getConnection(function(err, modelPelicula) {
+		modelPelicula.query("delete from pelicula where idpelicula = ?", idpelicula, function(err) {
+			res.redirect("/");
+		})
+	});
 }
 
 router.use(modelPelicula);
@@ -81,5 +90,6 @@ router.get("/add-form", fnFormularioAgregar);
 router.post("/", fnAgregarPelicula);
 router.get("/edit/:id", fnEditarPelicula);
 router.post("/update/:id", fnActualizarPelicula);
+router.get("/delete/:id", fnEliminarPelicula);
 
 module.exports = router;	

@@ -16,6 +16,7 @@ html
 						td #{item.titulo}
 						td #{item.anno}
 						td
-							a(href="/edit/#{item.idpelicula}") Editar
+							a(href="/edit/#{item.idpelicula}") Editar | 
+							a(href="/delete/#{item.idpelicula}") Eliminar
 		-else
 			h1 No existen registros en la base de datos
