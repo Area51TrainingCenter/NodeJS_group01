@@ -1,0 +1,43 @@
+Instalación
+	http://docs.mongodb.org/manual/installation/
+
+Documentación
+	http://docs.mongodb.org/manual/
+
+
+Operaciones básicas de Mongo
+	Iniciar mongo: mongo	
+	Mostrar lista de bases de datos: show dbs
+	Usar una base de datos específica: use <db>
+	Mostrar lista de colecciones: show collections
+
+
+Operaciones CRUD
+	Seleccionar todo de una tabla: db.tabla.find()
+	Seleccionar registro con criterio: db.table.find({nombre:'sergio'}) 
+	Ordenar selección:  db.table.find({nombre:'sergio'}).sort({apellido: 1})
+	Limitar cantidad de registros: db.table.find({nombre:'sergio'}).limit(10)
+	Seleccionar con operadores: 
+		db.table.find({edad: {$lt:10}})
+		db.table.find({edad: {$gt:10}})
+		db.table.find({edad: {$le:10}})
+		db.table.find({edad: {$ge:10}})
+		db.table.find({edad: {$ne:10}})
+		db.table.find({nombre: /se/})
+		db.table.find({nombre: /^se/})
+		db.table.find({nombre: /se$/})
+	Seleccion booleana:
+		db.table.find($or: [{edad: {$lt:10}}, {sexo: 1}])
+		db.table.find($and: [{edad: {$lt:10}}, {sexo: 1}])
+		db.table.find({estadoCivil: {$in: ['s','d']}})
+	Limitar campos:
+		db.table.find({edad: {$lt:10}}, {nombre:1})
+	Insertar:
+		db.table.insert({nombre:'andrea', apellido:'hidalgo'})
+	Actualizar:
+		db.table.update({nombre:'sergio'},{apellido: 'cáceres'})
+	Remover
+		db.table.remove({nombre:/^se/})
+
+
+
