@@ -1,0 +1,57 @@
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">app Hoja De Tiempo</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+
+            <% for(j=0; j<itemsMenu.length; j++) { %>
+
+            <li><a href="<%= itemsMenu[j].url %>"><%= itemsMenu[j].label %></a></li>
+
+            <% } %>
+
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+
+<br/>
+<br/><br/><br/>
+
+<form method="post" action="/usuarios/insertar">
+  <div class="form-group">
+    <label for="inputUsuario">Usuario</label>
+    <input type="text" class="form-control" id="inputUsuario" name="inputUsuario" placeholder="Usuario">
+  </div>
+  <div class="form-group">
+    <label for="inputContrasena">Contraseña</label>
+    <input type="text" class="form-control" id="inputContrasena" name="inputContrasena" placeholder="Contraseña">
+  </div>
+  <div class="form-group">
+    <label for="inputNombreCompleto">Nombre Completo</label>
+    <input type="text" class="form-control" id="inputNombreCompleto" name="inputNombreCompleto" placeholder="Nombre Completo">
+  </div>
+
+  <div class="form-group">
+    <label for="selectRol">Rol</label>
+    <select id="selectRol" name="selectRol">
+
+      <% for(i=0; i< roles.length; i++) { %>
+        <option value="<%= roles[i].idrol %>">
+        <%= roles[i].crol %></option>
+      <% } %>
+
+    </select>
+  </div>
+
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
