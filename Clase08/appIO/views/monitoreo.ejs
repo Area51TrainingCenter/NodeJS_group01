@@ -1,0 +1,22 @@
+<table width="700">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Nombre</th>
+			<th>Fecha Creación</th>
+			<th>Fecha Actualización</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<% for(i=0; i<lista.length; i++) { %>
+		<tr rel="<%= lista[i].idUsuario %>">
+			<td><%= lista[i].idUsuario %></td>
+			<td><%= lista[i].nombre %></td>
+			<td><%= lista[i].createdAt %></td>
+			<td><%= lista[i].updatedAt %></td>
+		</tr>
+		<% } %>
+	</tbody>
+
+</table>
